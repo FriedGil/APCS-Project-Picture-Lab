@@ -148,13 +148,38 @@ public class Picture extends SimplePicture
   /** Method to make the shape of the fish stand out  */
   public void enhanceFish()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    Color fishColor = pixels[50][200].getColor();
+
+    for (int i = 0; i <pixels.length-1; i++)
+    {
+      for (int j = 0; j < pixels[i].length-1; j++)
+      {
+        if (Pixel.colorDistance(pixels[i][j].getColor(), fishColor) > 20){
+          pixels[i][j].setBlue(pixels[i][j].getBlue()-50);
+          pixels[i][j].setGreen(pixels[i][j].getGreen()-50);
+          pixels[i][j].setRed(pixels[i][j].getRed()-50);
+
+        }
+      }
+    }
+
   }
   
   /** Method to highlight the edges of object in a picture by checking large changes in color */
   public void edgeDetection()
   {
-      
+    
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i <pixels.length-1; i++)
+    {
+      for (int j = 0; j < pixels[i].length-1; j++)
+      {
+        if (Pixel.colorDistance(pixels[i][j].getColor(), pixels[i+1][j+1].getColor()) > 20){
+          pixels[i][j].setColor(Color.black);
+        }
+      }
+    }
   }
   
   

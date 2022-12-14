@@ -18,8 +18,8 @@ public class PictureTester
     //testZeroBlue();
     //testGreenOnly();
     //testNegate();
-    testGrayscale();
-    //testEnhanceFish();
+    //testGrayscale();
+    testEnhanceFish();
     //testEdgeDetection();
     
     //testMirrorVertical();
@@ -74,7 +74,7 @@ public class PictureTester
   /** Method to test enhanceFish */
   public static void testEnhanceFish()
   {
-    Picture water = new Picture("water.jpg");
+    Picture water = new Picture("images\\water.jpg");
     water.explore();
     water.enhanceFish();
     water.explore();
@@ -83,7 +83,7 @@ public class PictureTester
     /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("images\\swan.jpg");
     swan.edgeDetection();
     swan.explore();
   }
