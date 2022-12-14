@@ -15,10 +15,10 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testGreenOnly();
     //testNegate();
-    //testGrayscale();
+    testGrayscale();
     //testEnhanceFish();
     //testEdgeDetection();
     
@@ -47,7 +47,7 @@ public class PictureTester
   /** Method to test greenOnly */
   public static void testGreenOnly()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("images\\beach.jpg");
     beach.explore();
     beach.greenOnly();
     beach.explore();
@@ -56,7 +56,7 @@ public class PictureTester
   /** Method to test negate */
   public static void testNegate()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("images\\beach.jpg");
     beach.explore();
     beach.negate();
     beach.explore();
@@ -65,7 +65,7 @@ public class PictureTester
   /** Method to test grayscale */
   public static void testGrayscale()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("images\\beach.jpg");
     beach.explore();
     beach.grayscale();
     beach.explore();

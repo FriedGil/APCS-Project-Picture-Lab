@@ -101,19 +101,48 @@ public class Picture extends SimplePicture
   /** Method to set the red and blue to 0 */
   public void greenOnly()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
+        pixelObj.setRed(0);
+      }
+    }
   }
+
+    
   
   /** Method to set the red,green,blue to (255 - its original value)  */
   public void negate()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(255-pixelObj.getBlue());
+        pixelObj.setRed(255-pixelObj.getRed());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+      }
+    }
   }
   
   /** Method to set all red,green,blue to the average of the three values  */
   public void grayscale()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        double avg = pixelObj.getAverage();
+        pixelObj.setBlue((int) avg);
+        pixelObj.setRed((int) avg);
+        pixelObj.setGreen((int) avg);
+      }
+    }
   }
   
   /** Method to make the shape of the fish stand out  */
@@ -125,7 +154,7 @@ public class Picture extends SimplePicture
   /** Method to highlight the edges of object in a picture by checking large changes in color */
   public void edgeDetection()
   {
-    //add your code here
+      
   }
   
   
