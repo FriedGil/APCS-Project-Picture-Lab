@@ -156,9 +156,9 @@ public class Picture extends SimplePicture
       for (int j = 0; j < pixels[i].length-1; j++)
       {
         if (Pixel.colorDistance(pixels[i][j].getColor(), fishColor) > 20){
-          pixels[i][j].setBlue(pixels[i][j].getBlue()-50);
-          pixels[i][j].setGreen(pixels[i][j].getGreen()-50);
-          pixels[i][j].setRed(pixels[i][j].getRed()-50);
+          pixels[i][j].setBlue((int) (pixels[i][j].getBlue()*.9));
+          pixels[i][j].setGreen( (int) (pixels[i][j].getGreen()*.9));
+          pixels[i][j].setRed((int) (pixels[i][j].getRed()*.9));
 
         }
       }
@@ -178,6 +178,7 @@ public class Picture extends SimplePicture
         if (Pixel.colorDistance(pixels[i][j].getColor(), pixels[i+1][j+1].getColor()) > 20){
           pixels[i][j].setColor(Color.black);
         }
+        else if (Pixel.colorDistance(pixels[i][j].getColor(), Color.WHITE) > 200) pixels[i][j].setColor(Color.WHITE);
       }
     }
   }
@@ -186,7 +187,14 @@ public class Picture extends SimplePicture
   /** Method to mirror the picture around a vertical line in the center of the picture from left to right */
   public void mirrorVertical()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i <pixels.length/2-1; i++)
+    {
+      for (int j = 0; j < pixels[i].length-2; j++)
+      {
+        pixels[pixels.length/2][j].setColor(pixels[i][j].getColor());
+      }
+    }
   }
   
   /** Method to mirror around a diagonal line from bottom left to top right */
@@ -239,6 +247,14 @@ public class Picture extends SimplePicture
   /** Your own customized method*/
   public void customized()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i <(pixels.length/2); i++)
+    {
+      for (int j = 0; j < pixels[i].length-1; j++)
+      {
+        pixels[i*2][j].setColor(pixels[i][j].getColor());
+      }
+    }
+
   }
 } 
