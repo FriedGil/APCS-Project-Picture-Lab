@@ -22,10 +22,10 @@ public class PictureTester
     //testEnhanceFish();
     //testEdgeDetection();
     
-    testMirrorVertical();
+    //testMirrorVertical();
     //testMirrorDiagonal();
     //testMirrorTemple();
-    //testMirrorArms();
+    testMirrorArms();
     //testCopyGull();    
     
     //testChromakey();
@@ -100,7 +100,7 @@ public class PictureTester
   /** Method to test mirrorDiagonal */
   public static void testMirrorDiagonal()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("images\\beach.jpg");
     beach.explore();
     beach.mirrorDiagonal();
     beach.explore();
@@ -109,7 +109,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("images\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -118,7 +118,7 @@ public class PictureTester
   /** Method to test mirrorArms */
   public static void testMirrorArms()
   {
-    Picture snowman = new Picture("snowman.jpg");
+    Picture snowman = new Picture("images\\snowman.jpg");
     snowman.explore();
     snowman.mirrorArms();
     snowman.explore();

@@ -183,16 +183,30 @@ public class Picture extends SimplePicture
     }
   }
   
-  
   /** Method to mirror the picture around a vertical line in the center of the picture from left to right */
+
+  public void mirrorHorizontal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i <(pixels.length/2)-1; i++)
+    {
+      for (int j = 0; j < pixels[i].length-1; j++)
+      {
+        pixels[pixels.length-i-1][j].setColor(pixels[i][j].getColor());
+
+      }
+    }
+  }
+
   public void mirrorVertical()
   {
     Pixel[][] pixels = this.getPixels2D();
-    for (int i = 0; i <pixels.length/2-1; i++)
+    for (int i = 0; i <pixels.length-1; i++)
     {
-      for (int j = 0; j < pixels[i].length-2; j++)
+      for (int j = 0; j < (pixels[i].length/2); j++)
       {
-        pixels[pixels.length/2][j].setColor(pixels[i][j].getColor());
+        pixels[i][pixels[i].length-j-1].setColor(pixels[i][j].getColor());
+
       }
     }
   }
@@ -200,19 +214,44 @@ public class Picture extends SimplePicture
   /** Method to mirror around a diagonal line from bottom left to top right */
   public void mirrorDiagonal()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i <(pixels.length/2); i++)
+    {
+      for (int j = 0; j < (pixels[i].length/2); j++)
+      {
+        pixels[i][j].setColor(pixels[(pixels.length/2)-i-1][(pixels[i].length/2)-j-1].getColor());
+
+      }
+    }
+
   }
     
   /** Method to mirror just part of a picture of a temple to fix the broken part of the temple */
   public void mirrorTemple()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i <pixels.length/4; i++)
+    {
+      for (int j = 0; j < (pixels[i].length/2); j++)
+      {
+        pixels[i][pixels[i].length-j-1].setColor(pixels[i][j].getColor());
+
+      }
+    }
   }
   
+
   /** Method to mirror just part of a picture of a snowman, so that it will have four arms instead of two */
   public void mirrorArms()
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i < pixels.length; i++)
+    {
+      for (int j = 0; j < pixels[i].length; j++)
+      {
+
+      }
+    }
   }
   
   /** Method to copy the gull in the picture to another location of the picture */
