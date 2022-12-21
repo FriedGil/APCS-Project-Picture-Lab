@@ -245,13 +245,18 @@ public class Picture extends SimplePicture
   public void mirrorArms()
   {
     Pixel[][] pixels = this.getPixels2D();
-    for (int i = 158; i < 193; i++) for (int j = 103; j < 170; j++) pixels[i][j].setColor(pixels[i][j].getColor());
-    }
+    //Mirror point ~195
+    for (int i = 160; i < 195; i++) for (int j = 100; j < 170; j++) pixels[390 - i][j].setColor(pixels[i][j].getColor());
+    //Mirror Point ~200
+    for (int i = 170; i < 200; i++) for (int j = 240; j < 295; j++) pixels[390 - i][j].setColor(pixels[i][j].getColor());
+
+  }
   
   /** Method to copy the gull in the picture to another location of the picture */
   public void copyGull()
   {
-    
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 238; i < 323; i++) for (int j = 238; j < 345; j++) pixels[i][700-j].setColor(pixels[i][j].getColor());
   }
      
   
@@ -260,22 +265,46 @@ public class Picture extends SimplePicture
     */
   public void chromakey(Picture newBack)
   {
+    //May take a while to run
     Pixel[][] pixels = this.getPixels2D();
+    Pixel[][] bg = newBack.getPixels2D();
+    Color bgColor = pixels[187][200].getColor();
+    for (int i = 0; i < pixels.length; i++) {
+      for (int j = 0; j < pixels[i].length; j++) {
+        if (pixels[i][j].colorDistance(bgColor) < 30) {
+          pixels[i][j].setColor(bg[i][j].getColor());
+        }
+      }
+    }
     
   }
   
   /** Method to decode a message hidden in the red value of the current picture */
   public void decode()
   {
-    //add your code here
+    //You got it
+    Pixel[][] pixels = this.getPixels2D();
+    for (int i = 0; i < pixels.length; i++) {
+      for (int j = 0; j < pixels[i].length; j++) {
+        if (pixels[i][j].getRed() % 2 == 0) pixels[i][j].setColor(Color.BLACK);
+        else pixels[i][j].setColor(Color.WHITE);
+      }
+    }
   }
   
   /** Hide a black and white message in the current picture by changing the green to even and then setting it to odd if the message pixel is black 
     * @param messagePict the picture with a message
     */
-  public void encodeGreen(Picture messagePict)
-  {
-    //add your code here
+  public void encodeGreen(Picture messagePict) {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel[][] otherPixels = messagePict.getPixels2D();
+    for (int i = 0; i < pixels.length; i++) {
+      for (int j = 0; j < pixels[i].length; j++) {
+        pixels[i][j].setGreen((pixels[i][j].getGreen() / 2) * 2);
+        if (otherPixels[i][j].colorDistance(Color.BLACK) < 10) pixels[i][j].setGreen(pixels[i][j].getGreen() + 1);
+
+      }
+    }
   }
 
   /** Your own customized method*/
@@ -286,8 +315,8 @@ public class Picture extends SimplePicture
     {
       for (int j = 0; j < pixels[i].length; j++)
       {
-        Color squared = new Color(pixels[i][j].getBlue(),pixels[i][j].getRed(),pixels[i][j].getGreen());
-        pixels[i][j].setColor(squared);
+        Color flipped = new Color(pixels[i][j].getBlue(),pixels[i][j].getRed(),pixels[i][j].getGreen());
+        pixels[i][j].setColor(flipped);
       }
     }
 

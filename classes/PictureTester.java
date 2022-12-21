@@ -26,19 +26,19 @@ public class PictureTester
     //testMirrorDiagonal();
     //testMirrorTemple();
     //testMirrorArms();
-    //testCopyGull();    
+    //testCopyGull();
     
     //testChromakey();
     //testDecode();
-    //testEncodeGreen();
+    testEncodeGreen();
 
-    testCustomized();
+    //testCustomized();
   }
   
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("images\\beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
@@ -47,7 +47,7 @@ public class PictureTester
   /** Method to test greenOnly */
   public static void testGreenOnly()
   {
-    Picture beach = new Picture("images\\beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.greenOnly();
     beach.explore();
@@ -56,7 +56,7 @@ public class PictureTester
   /** Method to test negate */
   public static void testNegate()
   {
-    Picture beach = new Picture("images\\beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.negate();
     beach.explore();
@@ -65,7 +65,7 @@ public class PictureTester
   /** Method to test grayscale */
   public static void testGrayscale()
   {
-    Picture beach = new Picture("images\\beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.grayscale();
     beach.explore();
@@ -74,7 +74,7 @@ public class PictureTester
   /** Method to test enhanceFish */
   public static void testEnhanceFish()
   {
-    Picture water = new Picture("images\\water.jpg");
+    Picture water = new Picture("water.jpg");
     water.explore();
     water.enhanceFish();
     water.explore();
@@ -83,7 +83,7 @@ public class PictureTester
     /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("images\\swan.jpg");
+    Picture swan = new Picture("swan.jpg");
     swan.edgeDetection();
     swan.explore();
   }
@@ -91,7 +91,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("images\\caterpillar.jpg");
+    Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -100,7 +100,7 @@ public class PictureTester
   /** Method to test mirrorDiagonal */
   public static void testMirrorDiagonal()
   {
-    Picture beach = new Picture("images\\beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.mirrorDiagonal();
     beach.explore();
@@ -109,7 +109,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("images\\temple.jpg");
+    Picture temple = new Picture("temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -118,7 +118,7 @@ public class PictureTester
   /** Method to test mirrorArms */
   public static void testMirrorArms()
   {
-    Picture snowman = new Picture("images\\snowman.jpg");
+    Picture snowman = new Picture("snowman.jpg");
     snowman.explore();
     snowman.mirrorArms();
     snowman.explore();
@@ -170,7 +170,7 @@ public class PictureTester
   /** Method to test customized*/
   public static void testCustomized()
   {
-    Picture beach = new Picture("images\\beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.customized();
     beach.explore();
