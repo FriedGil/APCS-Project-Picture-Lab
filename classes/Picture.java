@@ -245,19 +245,13 @@ public class Picture extends SimplePicture
   public void mirrorArms()
   {
     Pixel[][] pixels = this.getPixels2D();
-    for (int i = 0; i < pixels.length; i++)
-    {
-      for (int j = 0; j < pixels[i].length; j++)
-      {
-
-      }
+    for (int i = 158; i < 193; i++) for (int j = 103; j < 170; j++) pixels[i][j].setColor(pixels[i][j].getColor());
     }
-  }
   
   /** Method to copy the gull in the picture to another location of the picture */
   public void copyGull()
   {
-    //add your code here
+    
   }
      
   
@@ -266,7 +260,8 @@ public class Picture extends SimplePicture
     */
   public void chromakey(Picture newBack)
   {
-    //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    
   }
   
   /** Method to decode a message hidden in the red value of the current picture */
@@ -287,11 +282,12 @@ public class Picture extends SimplePicture
   public void customized()
   {
     Pixel[][] pixels = this.getPixels2D();
-    for (int i = 0; i <(pixels.length/2); i++)
+    for (int i = 0; i <pixels.length; i++)
     {
-      for (int j = 0; j < pixels[i].length-1; j++)
+      for (int j = 0; j < pixels[i].length; j++)
       {
-        pixels[i*2][j].setColor(pixels[i][j].getColor());
+        Color squared = new Color(pixels[i][j].getBlue(),pixels[i][j].getRed(),pixels[i][j].getGreen());
+        pixels[i][j].setColor(squared);
       }
     }
 

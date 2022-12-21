@@ -25,14 +25,14 @@ public class PictureTester
     //testMirrorVertical();
     //testMirrorDiagonal();
     //testMirrorTemple();
-    testMirrorArms();
+    //testMirrorArms();
     //testCopyGull();    
     
     //testChromakey();
     //testDecode();
     //testEncodeGreen();
 
-    //testCustomized();
+    testCustomized();
   }
   
   /** Method to test zeroBlue */
@@ -170,7 +170,7 @@ public class PictureTester
   /** Method to test customized*/
   public static void testCustomized()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("images\\beach.jpg");
     beach.explore();
     beach.customized();
     beach.explore();
