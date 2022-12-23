@@ -308,17 +308,22 @@ public class Picture extends SimplePicture
   }
 
   /** Your own customized method*/
-  public void customized()
-  {
+  public void customized() {
+    Random random = new Random();
     Pixel[][] pixels = this.getPixels2D();
-    for (int i = 0; i <pixels.length; i++)
-    {
-      for (int j = 0; j < pixels[i].length; j++)
-      {
-        Color flipped = new Color(pixels[i][j].getBlue(),pixels[i][j].getRed(),pixels[i][j].getGreen());
-        pixels[i][j].setColor(flipped);
+    for (int i = pixels.length - 1; i > 0; i--) {
+      for (int j = pixels[i].length - 1; j > 0; j--) {
+        if (j % 3 == 0){
+        int m = random.nextInt(i + 1);
+        int n = random.nextInt(j + 1);
+
+        Pixel temp = pixels[i][j];
+        pixels[i][j].setColor(pixels[m][n].getColor());
+        pixels[m][n].setColor(temp.getColor());
+        }
       }
     }
+
 
   }
 } 

@@ -30,9 +30,9 @@ public class PictureTester
     
     //testChromakey();
     //testDecode();
-    testEncodeGreen();
+    //testEncodeGreen();
 
-    //testCustomized();
+    testCustomized();
   }
   
   /** Method to test zeroBlue */
@@ -170,7 +170,7 @@ public class PictureTester
   /** Method to test customized*/
   public static void testCustomized()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("moon-surface.jpg");
     beach.explore();
     beach.customized();
     beach.explore();
